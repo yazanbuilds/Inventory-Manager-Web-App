@@ -1,0 +1,461 @@
+/* Base Styles */
+:root {
+    --primary-color: #4D49FF;
+    --secondary-color: #A78BFA;
+    --success-color: #2ECC71;
+    --warning-color: #F1C40F;
+    --danger-color: #E74C3C;
+    --dark-color: #333333;
+    --light-text: #888888;
+    --bg-color: #F5F7FB;
+    --card-bg: #FFFFFF;
+    --sidebar-width: 260px;
+    --border-radius: 20px;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background-color: var(--card-bg);
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02);
+    padding-top: 20px;
+}
+
+.sidebar .nav-link {
+    color: var(--light-text);
+    padding: 14px 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-bottom: 5px;
+    border-radius: 0 50px 50px 0;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .nav-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(77, 73, 255, 0.05);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(77, 73, 255, 0.3);
+}
+
+.sidebar .nav-link i {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    padding: 30px;
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 20px 25px 0;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Stat Cards */
+.stat-card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Custom Gradients/Colors for Stat Cards */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4D49FF 0%, #7E7AFF 100%);
+    color: white;
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #2ECC71 0%, #58D68D 100%);
+    color: white;
+}
+
+.bg-gradient-info {
+    background: linear-gradient(135deg, #3498DB 0%, #5DADE2 100%);
+    color: white;
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #F1C40F 0%, #F4D03F 100%);
+    color: white;
+}
+
+/* Override text colors inside colored cards */
+.bg-gradient-primary .text-muted,
+.bg-gradient-success .text-muted,
+.bg-gradient-info .text-muted,
+.bg-gradient-warning .text-muted,
+.bg-gradient-primary .card-title,
+.bg-gradient-success .card-title,
+.bg-gradient-info .card-title,
+.bg-gradient-warning .card-title {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bg-gradient-primary h2,
+.bg-gradient-success h2,
+.bg-gradient-info h2,
+.bg-gradient-warning h2 {
+    color: white !important;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(77, 73, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #3D39CC;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(77, 73, 255, 0.4);
+}
+
+.btn-lg {
+    padding: 15px 30px;
+    font-size: 1rem;
+}
+
+/* Tables */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    color: var(--light-text);
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+}
+
+.table td {
+    padding: 15px;
+    vertical-align: middle;
+    color: var(--dark-color);
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #F9FAFC;
+    transform: scale(1.01);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+/* Mobile Styles */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .sidebar {
+        display: none;
+        /* Handled by offcanvas on mobile */
+    }
+
+    .offcanvas {
+        border-radius: 0 20px 20px 0;
+        border: none;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .offcanvas-header {
+        padding: 25px;
+    }
+
+    .offcanvas-body {
+        padding: 0 10px;
+    }
+
+    .offcanvas-body .nav-link {
+        color: var(--light-text);
+        padding: 14px 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        margin-bottom: 5px;
+        border-radius: 0 50px 50px 0;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .offcanvas-body .nav-link:hover {
+        color: var(--primary-color);
+        background-color: rgba(77, 73, 255, 0.05);
+    }
+
+    .offcanvas-body .nav-link.active {
+        background-color: var(--primary-color);
+        color: white;
+        box-shadow: 0 4px 15px rgba(77, 73, 255, 0.3);
+    }
+
+    .offcanvas-body .nav-link i {
+        margin-right: 12px;
+        font-size: 1.1rem;
+        width: 24px;
+        text-align: center;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+/* Utility */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* =========================================
+   Create Sale Page - Custom Scoped Styles
+   ========================================= */
+.abaya-sales-page {
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 100px;
+    /* Space for the sticky footer */
+}
+
+.abaya-sales-page .sales-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    padding: 24px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.abaya-sales-page .form-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #4b5563;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.abaya-sales-page .form-control,
+.abaya-sales-page .form-select {
+    background-color: #f3f4f6;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    transition: all 0.2s;
+}
+
+.abaya-sales-page .form-control:focus,
+.abaya-sales-page .form-select:focus {
+    background-color: #ffffff;
+    border-color: #064e3b;
+    box-shadow: 0 0 0 3px rgba(6, 78, 59, 0.1);
+}
+
+.abaya-sales-page .select2-container--bootstrap-5 .select2-selection {
+    background-color: #f3f4f6;
+    border: none;
+    border-radius: 8px;
+    min-height: 48px;
+    padding: 5px;
+}
+
+.abaya-sales-page .btn-dark-green {
+    background-color: #064e3b;
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.abaya-sales-page .btn-dark-green:hover {
+    background-color: #022c22;
+    color: #ffffff;
+}
+
+/* Custom Type Toggle (Sale/Return) */
+.abaya-sales-page .type-toggle-container {
+    display: flex;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 4px;
+}
+
+.abaya-sales-page .type-toggle-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.abaya-sales-page .type-toggle-btn.active-sale {
+    background-color: #064e3b;
+    color: white;
+}
+
+.abaya-sales-page .type-toggle-btn.active-return {
+    background-color: #991b1b;
+    color: white;
+}
+
+/* Product Item Cards */
+.abaya-sales-page .product-item-card {
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.abaya-sales-page .badge-sale {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.abaya-sales-page .badge-return {
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.abaya-sales-page .totals-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+/* Sticky Bottom Footer */
+.abaya-sales-page .sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: var(--sidebar-width);
+    /* Accounts for your desktop sidebar */
+    right: 0;
+    background: #ffffff;
+    padding: 15px 24px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    border-top: 1px solid #f3f4f6;
+}
+
+@media (max-width: 991.98px) {
+    .abaya-sales-page .sticky-footer {
+        left: 0;
+    }
+}
